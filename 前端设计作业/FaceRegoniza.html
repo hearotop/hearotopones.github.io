@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摄像头人脸识别</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<h1>摄像头人脸识别</h1>
+<video id="video" width="640" height="480" autoplay></video>
+<button id="startButton">开始识别</button>
+<p id="result"></p>
+
+<script>
+    const video = document.getElementById('video');
+    const resultDisplay = document.getElementById('result');
+    const startButton = document.getElementById('startButton');
+    let streaming = false;
+
+    // 检查浏览器是否支持摄像头
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            video.srcObject = stream;
+            video.play();
+        })
+        .catch(function(err) {
+            console.error('无法访问摄像头: ', err);
+        });
+
+    // 开始识别按钮点击事件
+    startButton.addEventListener('click', function() {
+        if (!streaming) {
+            // 获取摄像头视频流数据
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imageDataURL = canvas.toDataURL('image/jpeg');
+
+            // 发送视频流数据给后端处理
+            $.ajax({
+                type: 'POST',
+                url: '/recognize',  // Flask后端服务的URL
+                data: { image_data: imageDataURL },
+                success: function(response) {
+                    resultDisplay.textContent = '识别结果: ' + response.message;
+                },
+                error: function(xhr, status, error) {
+                    console.error('错误: ', xhr.responseText);
+                    resultDisplay.textContent = '错误: ' + xhr.responseText;
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不规则表格</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th rowspan="1" colspan="2">cell 1</th>
+        <th colspan="1" rowspan=2">cell 2</th>
+        <th rowspan="1" colspan="2">cell 3</th>
+        <th rowspan="1">cell 4</th>
+        <th rowspan="1">cell 5</th>
+        <th rowspan="2">cell 6</th>
+    </tr>
+    <tr>
+        <td colspan="1" rowspan="1.5" >Cell 7</tdols>
+        <td colspan="1" rowspan="2">Cell 8</td>
+        <td rowspan="1">cell 9</td>
+        <td rowspan="2">cell 10</td>
+        <td rowspan="1" colspan="2">cell 11</td>
+    </tr>
+    <tr>
+        <td colspan="1.5" rowspan="2">Cell 12</td>
+        <td colspan="1">Cell 13 </td>
+        <td colspan="1">Cell 14 </td>
+        <td colspan="1">Cell 15 </td>
+        <td colspan="1">Cell 16 </td>
+        <td rowspan="1" colspan="1">cell 17</td>
+    </tr>
+
+    <tr>
+        <td colspan="2" rowspan="1">Cell 18</td>
+        <td colspan="1" rowspan="1">Cell 19</td>
+        <td colspan="1" rowspan="1">Cell 20</td>
+        <td colspan="1" rowspan="1">Cell 21</td>
+        <td colspan="2" rowspan="1">Cell 22</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+    <style>
+        table {
+            margin: auto; /* 将表格水平居中 */
+        }
+        th, td {
+            padding: 10px; /* 设置单元格内边距 */
+        }
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 200px; /* 设置输入框宽度 */
+        }
+        input[type="submit"],
+        input[type="reset"] {
+            width: 100px; /* 设置按钮宽度 */
+        }
+        h1
+        {
+            text-align: center;
+        }
+        /* 为label和input添加间距 */
+
+    </style>
+</head>
+<body>
+<h1>注册</h1>
+<table>
+    <form action="#" method="post">
+        <tr>
+            <th><label for="username">用户名:</label></th>
+            <td><input type="text" id="username" name="username" required></td>
+        </tr>
+        <tr>
+            <th><label for="password">密码:</label></th>
+            <td><input type="password" id="password" name="password" required></td>
+        </tr>
+        <tr>
+            <th><label for="confirm_password">确认密码:</label></th>
+            <td><input type="password" id="confirm_password" name="confirm_password" required></td>
+        </tr>
+        <tr>
+            <th><label>性别:</label></th>
+            <td>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">男</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">女</label>
+            </td>
+        </tr>
+        <tr>
+            <th><label>爱好:</label></th>
+            <td>
+                <input type="checkbox" id="basketball" name="hobbies" value="basketball">
+                <label for="basketball">篮球</label>
+                <input type="checkbox" id="football" name="hobbies" value="football">
+                <label for="football">足球</label>
+                <input type="checkbox" id="table_tennis" name="hobbies" value="table_tennis">
+                <label for="table_tennis">乒乓球</label>
+                <input type="checkbox" id="badminton" name="hobbies" value="badminton">
+                <label for="badminton">羽毛球</label>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="avatar">上传头像：</label></th>
+            <td><input type="file" id="avatar" name="avatar" accept="image/*"></td>
+        </tr>
+        <tr>
+            <th><label for="residence">居住地:</label></th>
+            <td>
+                <select id="residence" name="residence">
+                    <option value="urban">城市</option>
+                    <option value="suburban">郊区</option>
+                    <option value="rural">农村</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="introduction">个人介绍:</label></th>
+            <td><textarea id="introduction" name="introduction" rows="4" cols="50"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;"><input type="submit" value="注册"><input type="reset" value="重置"></td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>
